@@ -17,8 +17,6 @@ add_filter( 'locale_stylesheet_uri', 'chld_thm_cfg_locale_css' );
 // END ENQUEUE PARENT ACTION
 
 function md_custm_error_404_top_content(){
-    ?>
-<h1>MY 444444444444 PAG</h1>
-    <?php
+
 }
 add_action( 'medilac_404_page_top', 'md_custm_error_404_top_content' );
