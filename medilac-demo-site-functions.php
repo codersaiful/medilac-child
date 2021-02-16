@@ -22,7 +22,7 @@
  * @return type
  */
 function md_custom_ultraaddons_cat_basic( $cat ){
-    return [ 'basic' ];
+    return [ 'basic', 'ultraaddons' ];
 }
 add_filter( 'ultraaddons_widget_category', 'md_custom_ultraaddons_cat_basic' );
 
