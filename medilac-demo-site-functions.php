@@ -14,6 +14,18 @@
  * @since 1.0.0.1
  */
 
+/**
+ * UltraAddons Default category goes to basic for now
+ * 
+ * 
+ * @param type $columns
+ * @return type
+ */
+function md_custom_ultraaddons_cat_basic( $cat ){
+    return [ 'basic' ];
+}
+add_filter( 'ultraaddons_widget_category', 'md_custom_ultraaddons_cat_basic' );
+
 
 /**
  * Actually this is for management shop page 
@@ -44,7 +56,7 @@ function md_custom_shop_page_manage_by_get_var( $theme_mod, $keyword, $post_ID, 
     
     return $theme_mod;
 }
-//add_filter( 'medilac_option', 'md_custom_shop_page_manage_by_get_var', 10, 4 );
+add_filter( 'medilac_option', 'md_custom_shop_page_manage_by_get_var', 10, 4 );
 
 
 /**
