@@ -47,11 +47,22 @@ add_filter( 'ultraaddons_widget_category', 'md_custom_ultraaddons_cat_basic' );
  * 
  */
 function md_custom_shop_page_manage_by_get_var( $theme_mod, $keyword, $post_ID, $sufix  ){
-
+    //medilac_blog_layout
+    //var_dump($_GET,array_keys(get_theme_mods()));
     //$post_ID == $shop_page_id && 
     if( $keyword == 'layout_sidebar' && isset( $_GET['layout_sidebar'] ) && ! empty( $_GET['layout_sidebar'] ) ){
 
         return $_GET['layout_sidebar'];
+    }else{
+//        $supported_options = array_keys(get_theme_mods());
+//        if( ! is_array( $supported_options ) ){
+//            $supported_options = array();
+//        }
+        foreach($_GET as $each_option => $each_option_value ){
+            if( $each_option == $keyword ){
+                return $each_option_value;
+            }
+        }
     }
     
     return $theme_mod;
