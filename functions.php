@@ -21,4 +21,4 @@ function md_custm_error_404_top_content(){
 }
 add_action( 'medilac_404_page_top', 'md_custm_error_404_top_content' );
 
-include_once 'medilac-demo-site-functions.php';
+//include_once 'medilac-demo-site-functions.php';
