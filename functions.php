@@ -106,8 +106,12 @@ if ( ! function_exists( 'medilac_child_header_custom_top' ) ):
     function medilac_child_header_custom_top(){
 	//if( get_the_id() != 3091 ) return;
 		
-        dynamic_sidebar( 'custom-topbar' );
+        ?>
+        <div class="custom-topbar">
+                <?php dynamic_sidebar( 'custom-topbar' ); ?>
+        </div>
+        <?php
     }
 endif;
 
-//add_action( 'medilac_before_header', 'medilac_child_header_custom_top' );
+//add_action( 'medilac_header_top', 'medilac_child_header_custom_top' );
