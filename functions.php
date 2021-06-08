@@ -22,3 +22,70 @@ function md_custm_error_404_top_content(){
 add_action( 'medilac_404_page_top', 'md_custm_error_404_top_content' );
 
 //include_once 'medilac-demo-site-functions.php';
+
+/**
+ * Following two functions and hook has used
+ * for showing menu at Footer Socket.
+ * 
+ * By Default it's disabled. you able to enable it.
+ * 
+ * @since 1.0.2.0
+ */
+
+if ( !function_exists( 'md_footer_socket_menu' ) ):
+    
+    /**
+     * Displaying Footer menu.
+     * confirm that: footer-socket-menu is already registered
+     * we did it using bottom function of this function
+     * 
+     * @since 1.0.2.0
+     */
+    function md_footer_socket_menu(){
+
+            wp_nav_menu(
+                array(
+                    'theme_location'    => 'footer-socket-menu',
+                    'container_id'      => 'footer-socket-menu',
+                    'menu_class'        => 'menu nav-menu',
+                    'depth'             => 1,
+                )
+            );
+    }
+endif;
+//add_action( 'medilac_socket_area', 'md_footer_socket_menu', 999 );
+
+if ( !function_exists( 'md_footer_socket_menu_reg' ) ):
+    
+    /**
+     * Register footer-socket-menu menu for Footer Socket
+     * 
+     * @since 1.0.2.0
+     */
+    function md_footer_socket_menu_reg(){
+            register_nav_menus(
+                array(
+                        'footer-socket-menu' => esc_html__( 'Footer Socket Menu', 'medilac' ),
+                )
+            );
+    }
+endif;
+//add_action( 'after_setup_theme', 'md_footer_socket_menu_reg', 999 );
+
+if ( !function_exists( 'md_social_links_anywhere' ) ):
+    
+    /**
+     * Displaying selected social link
+     * which is already selected in Customizer.
+     * 
+     * @since 1.0.2.0
+     */
+    function md_social_links_anywhere(){
+        $social_network = medilac_option( 'medilac_social' );
+	medilac_social_links( $social_network );
+    }
+endif;
+add_shortcode( 'medilac_social_links', 'md_social_links_anywhere' );
+
+
+
