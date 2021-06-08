@@ -102,12 +102,12 @@ add_shortcode( 'medilac_social_links', 'md_social_links_anywhere' );
 
 
 
-if ( ! function_exists( 'medilac_header_custom_top' ) ):
-    function medilac_header_custom_top(){
+if ( ! function_exists( 'medilac_child_header_custom_top' ) ):
+    function medilac_child_header_custom_top(){
 	//if( get_the_id() != 3091 ) return;
 		
         dynamic_sidebar( 'custom-topbar' );
     }
 endif;
 
-//add_action( 'medilac_before_header', 'medilac_header_custom_top' );
+//add_action( 'medilac_before_header', 'medilac_child_header_custom_top' );
