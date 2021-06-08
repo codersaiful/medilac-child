@@ -59,6 +59,7 @@ if ( !function_exists( 'md_footer_socket_menu_reg' ) ):
     
     /**
      * Register footer-socket-menu menu for Footer Socket
+     * Register Custom Topbar Widget, Plase at the top ob site 
      * 
      * @since 1.0.2.0
      */
@@ -67,6 +68,18 @@ if ( !function_exists( 'md_footer_socket_menu_reg' ) ):
                 array(
                         'footer-socket-menu' => esc_html__( 'Footer Socket Menu', 'medilac' ),
                 )
+            );
+            
+            register_sidebar(
+		array(
+			'name'          => esc_html__( 'Custom Topbar', 'medilac' ),
+			'id'            => 'custom-topbar',
+			'description'   => esc_html__( 'Add widgets here.', 'medilac' ),
+			'before_widget' => '<section id="%1$s" class="widget widget-general %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
             );
     }
 endif;
@@ -89,3 +102,12 @@ add_shortcode( 'medilac_social_links', 'md_social_links_anywhere' );
 
 
 
+if ( ! function_exists( 'medilac_header_custom_top' ) ):
+    function medilac_header_custom_top(){
+	//if( get_the_id() != 3091 ) return;
+		
+        dynamic_sidebar( 'custom-topbar' );
+    }
+endif;
+
+//add_action( 'medilac_before_header', 'medilac_header_custom_top' );
